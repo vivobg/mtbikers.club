@@ -1,0 +1,87 @@
+local_backend: true
+backend:
+  name: github
+  repo: vivobg/mtbikers.club
+  branch: master
+  squash_merges: true
+  site_domain: cms.netlify.com
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  cms_label_prefix: netlify-/
+
+publish_mode: editorial_workflow
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+collections:
+- name: posts
+  label: Post
+  folder: content/posts
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  fields:
+    - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+    - {label: "Title", name: "title", widget: "string"}
+    - {label: "Publish Date", name: "date", widget: "datetime"}
+    - {label: "Featured Image", name: "thumbnail", widget: "image"}
+    - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+    - {label: "Body", name: "body", widget: "markdown"}
+
+- name: organisers
+  label: Organiser
+  folder: content/organisers
+  create: true
+  slug: "{{slug}}"
+  fields:
+    - {label: Nickname, name: title, widget: string}
+    - {label: Name, name: name, widget: string}
+    - {label: Phone, name: phone, widget: string}
+    - {label: Bio, name: body, widget: markdown}
+
+- name: locations
+  label: Location
+  folder: content/locations
+  create: true
+  #identifier_field: location_id
+  slug: "{{fields.location_id}}"
+  fields:
+    - {label: Name, name: title, widget: string}
+    - {label: Location ID, name: location_id, widget: string, hint: "Same as Name, but lowercase and with dashes"}
+    - {label: Map, name: map, widget: map}
+    - {label: Phone, name: phone, widget: string}
+    - {label: Information, name: body, widget: markdown}
+
+- name: rides
+  label: Ride
+  folder: content/rides
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  fields:
+    - {label: "Layout", name: "layout", widget: "hidden", default: "ride"}
+    - {label: "Title", name: "title", widget: "string"}
+    - {label: "Publish Date", name: "date", widget: "datetime"}
+    - {label: "Featured Image", name: "thumbnail", widget: "image"}
+    - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
+    - label: Organiser
+      name: organiser
+      widget: relation
+      collection: organisers
+      search_fields:
+        - name
+        - title
+      value_field: title
+      display_fields:
+        - title
+        - name
+    - label: Location
+      name: location
+      widget: relation
+      collection: locations
+      search_fields:
+        - title
+        - location_id
+      value_field: location_id
+      display_fields:
+        - title
+        - location_id
+    - {label: "Body", name: "body", widget: "markdown"}
