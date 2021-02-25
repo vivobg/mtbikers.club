@@ -1,13 +1,8 @@
 {{ if eq .Type "rides" }}
-    ride location :
     {{ $location_id := .Params.location }}
-    {{ $location_id }}
     {{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
-        MAP:
         {{ .Params.google_maps | safeHTML }}
-        {{ .Params.location_id }}
         {{ .Content }}
-
     {{ end }}
 {{ else if eq .Type "locations"}}
     {{ .Params.google_maps | safeHTML }}

@@ -7,7 +7,6 @@
         {{ $fimage = (.Resources.GetMatch .Params.cover_image).RelPermalink }}
     {{ else }}
         {{ $location_id := .Params.location }}
-        {{ $location_id }}
         {{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
             {{ if .Params.cover_image }}
                 {{ $fimage = path.Join .RelPermalink  .Params.cover_image }}
@@ -43,7 +42,7 @@
     </style>
 {{ end }}
 {{ define "title" }}
-  {{ .Title }} | Hello  {{ .Site.Title }}
+  {{ .Title }} | {{ .Site.Title }}
 {{ end }}
 {{ define "header" }}
 <header class="feature-image d-print-none">
