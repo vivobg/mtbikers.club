@@ -1,6 +1,17 @@
-ride location :
-{{ $location_id := .Params.location }}
-{{ $location_id }}
+{{ if eq .Type "rides" }}
+    ride location :
+    {{ $location_id := .Params.location }}
+    {{ $location_id }}
+    {{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
+        MAP:
+        {{ .Params.google_maps | safeHTML }}
+        {{ .Params.location_id }}
+        {{ .Content }}
+
+    {{ end }}
+{{ else if eq .Type "locations"}}
+    {{ .Params.google_maps | safeHTML }}
+{{ end }}
 <br>
 <!-- location pages: -->
 <!-- <br> -->
@@ -14,17 +25,3 @@ ride location :
     <!-- {{ . }} -->
 {{ end }}
 <!-- <br> -->
-
-FINAL:
-<br>
-{{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
-MAP:
-    {{ .Params.google_maps | safeHTML }}
-{{ .Params.location_id }}
-    {{ .Content }}
-
-    <!-- <iiframe src="{{ .Params.google_map_url }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-{{ end }}
-
-<br>
-END
