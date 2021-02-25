@@ -130,6 +130,14 @@ collections:
         hint: The location's website
         required: false
 
+      - { label: "Cover Image", name: "cover_image", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        max: 5
+        summary: '{{fields.image}}'
+        field: {label: Image, name: image, widget: image}
+
       - name: body
         label: Description
         widget: markdown
@@ -160,15 +168,19 @@ collections:
         summary: '{{fields.image}}'
         field: {label: Image, name: image, widget: image}
 
-      - label: "Minimum Difficulty (scale of 1-4)"
-        name: "difficulty_min"
-        widget: "number"
-        optional: true
-
-      - label: "Maximum Difficulty (scale of 1-4)"
-        name: "difficulty_max"
-        widget: "number"
-        optional: true
+      - label: "Difficulty"
+        name: "ride_difficulty"
+        widget: "select"
+        multiple: true
+        required: false
+        min: 1
+        hint: Pick at least one
+        options:
+          - { label: "Green - Very Easy", value: "green" }
+          - { label: "Blue - Easy", value: "blue" }
+          - { label: "Orange - Medium", value: "orange" }
+          - { label: "Red - Advanced", value: "red" }
+          - { label: "Black - Hard", value: "black" }
 
       - label: Organiser
         name: organiser
