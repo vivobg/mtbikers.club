@@ -15,9 +15,7 @@ location_parking:
 website: https://www.rideastonhill.co.uk/
 cover_image: forest-pov-1.jpg
 ---
-
-
-# About Aston Hill
+## About Aston Hill
 
 Aston Hill Bike Park is a mountain bike venue situated just outside Wendover in Buckinghamshire, on one of the steeper slopes within the Chiltern Hills Area of Outstanding Beauty.
 
@@ -29,9 +27,7 @@ Aston Hill is very lucky to have some highly experienced [trail designers and b
 
 \*Aston Hill is more suited to competent riders during the winter months due to the slippery mix of roots, chalk and clay that make up the base of most Aston Hill trails.
 
-- - -
-
-# Fees and Membership
+## Fees and Membership
 
 Aston Hill is a pay-to-ride centre. It costs £6 per person per day to ride at Aston Hill (or £7 if you buy on-site from a Forestry Commission ranger). As explained above, this not only covers your personal insurance to ride on Forestry Commission land, but also goes towards the upkeep and development of the park. You can book your daypass here.
 
@@ -41,23 +37,17 @@ Click here to join on-line for adult, junior and affiliate memberships or teleph
 
 \*Subject to trail closures, events and restrictions.
 
-- - -
-
-# Opening hours
+## Opening hours
 
 Up to date opening hours can be found on the [times page](https://www.rideastonhill.co.uk/about.html "Opening times").
 
-- - -
-
-# The Committee
+## The Committee
 
 The committee is the driving force behind Aston Hill. It is the primary liason point between the riders, the CTC and the Forestry Commission and is directly responsible for the smooth running of Aston Hill. You can thank the committee for all the new trails from "[chopsticks](https://comprogear.com/chopsticks/)" to "[back corrector](https://comprogear.com/posture-corrector/)".
 
 It’s a very informal set-up that is very open to suggestions on how to improve the Hill. If you have any ideas, either grab a [committee member](https://www.rideastonhill.co.uk/about.html "Committee") or one of the Forestry Commission rangers.
 
-- - -
-
-# Essentials
+## Essentials
 
 We don’t like to harp on about rules and regulations here because we think you are all smart enough to know the difference between right and wrong. Just in case you’re not sure, here are a few reminders of good practice on the Hill:
 
