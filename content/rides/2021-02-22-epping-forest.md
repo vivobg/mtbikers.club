@@ -5,7 +5,7 @@ location: epping-forest
 organiser: vivo
 rating: 4
 thumbnail: /images/uploads/ally-pally-snow.jpg
-featureImage: images/main/park-ride.jpg
+#cover_image: ''
 title: Epping Forest Ride
 ---
 A quick blast of the trails around Epping.

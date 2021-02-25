@@ -1,12 +1,11 @@
 ---
 categories:
-- howto
+- guides
 date: "2020-02-20"
 description: A step by step of setting the correct tyre pressures
 featureImage: images/main/tyres.jpg
 menu: main
 tags:
-- howto
 - tyre
 - maintenance
 title: How to set the corect tyre pressure

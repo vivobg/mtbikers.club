@@ -1,12 +1,19 @@
 {{ define "head" }}
     {{ partial "head-meta" . }}
 
-    {{ with .Param "featureImage" }}
+    {{ $fimage := "/images/hugo-logo.png" }}
+    {{ if .Params.cover_image }}
+    {{/* {{ if (isset .Params "cover_image") | and (ne .Params.cover_image '') }} */}}
+        {{ $fimage = (.Resources.GetMatch .Params.cover_image).RelPermalink }}
+    {{ end }}
+
     <style type="text/css">
+
         .feature-image {
-            background-image: url("{{ . | absURL | safeCSS}}");
+            background-image: url("{{ $fimage | safeCSS}}");
             height: 500px;
         }
+
 
         @media (max-width: 992px) {
             .feature-image {
@@ -26,7 +33,6 @@
             }
         }
     </style>
-    {{ end }}
 {{ end }}
 {{ define "title" }}
   {{ .Title }} | Hello  {{ .Site.Title }}

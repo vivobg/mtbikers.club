@@ -4,7 +4,7 @@ categories:
 - forest
 date: "2020-02-20"
 description: An XC style bike part suitable for all
-featureImage: images/main/swinley-1.jpg
+cover_image: ''
 location: swinley-forest
 menu: main
 tags:

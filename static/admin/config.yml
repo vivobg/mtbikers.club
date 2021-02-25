@@ -14,74 +14,182 @@ media_folder: static/images/uploads
 public_folder: /images/uploads
 
 collections:
-- name: posts
-  label: Post
-  folder: content/posts
-  create: true
-  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-  fields:
-    - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-    - {label: "Title", name: "title", widget: "string"}
-    - {label: "Publish Date", name: "date", widget: "datetime"}
-    - {label: "Featured Image", name: "thumbnail", widget: "image"}
-    - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-    - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "content/about/index.md"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: "Body", name: "body", widget: "markdown" }
 
-- name: organisers
-  label: Organiser
-  folder: content/organisers
-  create: true
-  slug: "{{slug}}"
-  fields:
-    - {label: Nickname, name: title, widget: string}
-    - {label: Name, name: name, widget: string}
-    - {label: Phone, name: phone, widget: string}
-    - {label: Bio, name: body, widget: markdown}
+  - name: posts
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: content/posts
+    path: "{{slug}}/index"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
 
-- name: locations
-  label: Location
-  folder: content/locations
-  create: true
-  #identifier_field: location_id
-  slug: "{{fields.location_id}}"
-  fields:
-    - {label: Name, name: title, widget: string}
-    - {label: Location ID, name: location_id, widget: string, hint: "Same as Name, but lowercase and with dashes"}
-    - {label: Map, name: map, widget: map}
-    - {label: Phone, name: phone, widget: string}
-    - {label: Information, name: body, widget: markdown}
+  - name: guides
+    label: Guides
+    label_singular: Guide
+    folder: content/guides
+    path: "{{slug}}/index"
+    slug: "{{slug}}"
+    create: true
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "blog" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
+      - { label: "Body", name: "body", widget: "markdown" }
 
-- name: rides
-  label: Ride
-  folder: content/rides
-  create: true
-  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-  fields:
-    - {label: "Layout", name: "layout", widget: "hidden", default: "ride"}
-    - {label: "Title", name: "title", widget: "string"}
-    - {label: "Publish Date", name: "date", widget: "datetime"}
-    - {label: "Featured Image", name: "thumbnail", widget: "image"}
-    - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-    - label: Organiser
-      name: organiser
-      widget: relation
-      collection: organisers
-      search_fields:
-        - name
-        - title
-      value_field: title
-      display_fields:
-        - title
-        - name
-    - label: Location
-      name: location
-      widget: relation
-      collection: locations
-      search_fields:
-        - title
-        - location_id
-      value_field: location_id
-      display_fields:
-        - title
-        - location_id
-    - {label: "Body", name: "body", widget: "markdown"}
+  - name: organisers
+    label: Organisers
+    label_singular: Organiser
+    folder: content/organisers
+    path: "{{slug}}/index"
+    slug: "{{slug}}"
+    create: true
+    fields:
+      - { label: Nickname, name: title, widget: string }
+      - { label: Name, name: name, widget: string }
+      - { label: Phone, name: phone, widget: string }
+      - { label: Bio, name: body, widget: markdown }
+
+  - name: locations
+    label: Locations
+    label_singular: Location
+    folder: content/locations
+    path: "{{slug}}/index"
+    slug: "{{fields.location_id}}"
+    create: true
+    fields:
+      - name: title
+        label: Name
+        widget: string
+
+      - name: location_id
+        label: Location ID
+        widget: string
+        hint: "Same as Name, but lowercase and with dashes"
+
+      - name: google_maps
+        label: Google Maps Embed Link
+        widget: string
+        hint: "Google Maps embedded iframe HTML"
+
+      - label: "Difficulty"
+        name: "location_difficulty"
+        widget: "select"
+        multiple: true
+        min: 1
+        hint: Pick at least one
+        options:
+          - { label: "Green - Very Easy", value: "green" }
+          - { label: "Blue - Easy", value: "blue" }
+          - { label: "Orange - Medium", value: "orange" }
+          - { label: "Red - Advanced", value: "red" }
+          - { label: "Black - Hard", value: "black" }
+
+      - name: cost
+        label: Cost to ride per-person
+        widget: number
+        value_type: float
+        min: 0
+        default: 0
+        hint: How much does it cost to ride there?
+        #required: false
+
+      - label: "Parking"
+        name: "location_parking"
+        widget: "select"
+        multiple: true
+        min: 1
+        hint: Does the location offer parking?
+        options:
+          - { label: "No Parking", value: "none" }
+          - { label: "Free Parking", value: "free" }
+          - { label: "Paid Parking", value: "paid" }
+          - { label: "Remote Free Parking", value: "free_remote" }
+          - { label: "Remote Paid Parking", value: "paid_remote" }
+
+      - name: website
+        label: Website
+        widget: string
+        hint: The location's website
+        required: false
+
+      - name: body
+        label: Description
+        widget: markdown
+
+  - name: rides
+    label: Rides
+    label_singular: Ride
+    folder: content/rides
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    #nested:
+    #  depth: 2
+    #  summary: "{{title}}"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    #meta: { path: { widget: string, label: 'Path', index_file: 'index', default: "{{fields.parent}}" } }
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "ride" }
+      - { label: "Title", name: "title", widget: "string" }
+      #- {label: "Parent", name: "parent", widget: "parent"}
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "cover_image", widget: "image" }
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        max: 5
+        summary: '{{fields.image}}'
+        field: {label: Image, name: image, widget: image}
+
+      - label: "Minimum Difficulty (scale of 1-4)"
+        name: "difficulty_min"
+        widget: "number"
+        optional: true
+
+      - label: "Maximum Difficulty (scale of 1-4)"
+        name: "difficulty_max"
+        widget: "number"
+        optional: true
+
+      - label: Organiser
+        name: organiser
+        widget: relation
+        collection: organisers
+        search_fields:
+          - name
+          - title
+        value_field: title
+        display_fields:
+          - title
+          - name
+      - label: Location
+        name: location
+        widget: relation
+        collection: locations
+        search_fields:
+          - title
+          - location_id
+        value_field: location_id
+        display_fields:
+          - title
+          - location_id
+      - { label: "Body", name: "body", widget: "markdown" }
