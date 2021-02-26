@@ -4,7 +4,8 @@ backend:
   repo: vivobg/mtbikers.club
   branch: master
   squash_merges: true
-  site_domain: mtbikers.club
+  site_domain: mtbikersclub.netlify.app
+  api_root: https://api.github.com
   base_url: https://api.netlify.com
   auth_endpoint: auth
   cms_label_prefix: netlify-/
