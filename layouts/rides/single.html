@@ -58,6 +58,7 @@
     </div>
 
     <div class="mt-4 mb-4 main-content">
+        {{ partial "mtb-trail-grade" . }}
         {{ .Content }}
         {{ partial "location-summary" . }}
         <div class="share-icons d-flex justify-content-center d-print-none">

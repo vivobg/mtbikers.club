@@ -6,6 +6,8 @@ date: "2020-02-20"
 description: An XC style bike part suitable for all
 cover_image: ''
 location: swinley-forest
+ride_difficulty:
+    - blue
 menu: main
 tags:
 - xc
@@ -13,7 +15,7 @@ tags:
 - swinley
 - easy
 - medium
-title: Swinley Forest Ride
+title: Swinley Forest Blue Dash
 ---
 
 A designed bike park with paid parking, facilities and well-maintained trails.

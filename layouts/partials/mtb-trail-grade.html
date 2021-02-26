@@ -1,7 +1,23 @@
+{{ $location_difficulty := slice }}
+{{ $ride_difficulty := slice }}
+{{ if and (eq .Type "locations") (.Params.location_difficulty) }}
+    {{ $location_difficulty = .Params.location_difficulty }}
+{{ else if eq .Type "rides" }}
+    {{ $location_id := .Params.location }}
+    {{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
+        {{ if .Params.location_difficulty}}
+            {{ $location_difficulty = .Params.location_difficulty }}
+        {{ end }}
+    {{ end }}
+    {{ if .Params.ride_difficulty}}
+        {{ $ride_difficulty = .Params.ride_difficulty }}
+        {{ $location_difficulty = .Params.ride_difficulty }}
+    {{ end }}
+{{ end }}
 <figure>
 {{ range .Site.Params.mtb_trail_grades }}
     {{ $image_path := "" }}
-    {{ if and $.Params.location_difficulty (in $.Params.location_difficulty . ) }}
+    {{ if in $location_difficulty .  }}
         {{ $image_path = path.Join "mtb-trail-grades" (printf "%s.png" . ) }}
     {{ else }}
         {{ $image_path = path.Join "mtb-trail-grades" (printf "not-%s.png" . ) }}
