@@ -97,11 +97,10 @@ collections:
         min: 1
         hint: Pick at least one
         options:
-          - { label: "Green - Very Easy", value: "green" }
-          - { label: "Blue - Easy", value: "blue" }
-          - { label: "Orange - Medium", value: "orange" }
-          - { label: "Red - Advanced", value: "red" }
-          - { label: "Black - Hard", value: "black" }
+          - { label: "Green - Easy", value: "green" }
+          - { label: "Blue - Moderate", value: "blue" }
+          - { label: "Red - Difficult", value: "red" }
+          - { label: "Black - Severe", value: "black" }
 
       - name: cost
         label: Cost to ride per-person
@@ -161,7 +160,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       #- {label: "Parent", name: "parent", widget: "parent"}
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Cover Image", name: "cover_image", widget: "image" }
+      - { label: "Cover Image", name: "cover_image", widget: "image", required: false }
       - label: "Images"
         name: "images"
         widget: "list"
@@ -177,11 +176,10 @@ collections:
         min: 1
         hint: Pick at least one
         options:
-          - { label: "Green - Very Easy", value: "green" }
-          - { label: "Blue - Easy", value: "blue" }
-          - { label: "Orange - Medium", value: "orange" }
-          - { label: "Red - Advanced", value: "red" }
-          - { label: "Black - Hard", value: "black" }
+          - { label: "Green - Easy", value: "green" }
+          - { label: "Blue - Moderate", value: "blue" }
+          - { label: "Red - Difficult", value: "red" }
+          - { label: "Black - Severe", value: "black" }
 
       - label: Organiser
         name: organiser
