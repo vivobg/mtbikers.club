@@ -2,7 +2,7 @@ baseurl: 'https://mtbikers.club'
 title: MTBikers Club
 author: Vilian Atmadzhov
 copyright: 'Copyright © 2021, Vilian Atmadzhov; all rights reserved.'
-canonifyurls: true
+canonifyurls: false
 paginate: 3
 theme: silhouette-hugo
 pygmentsUseClasses: true
