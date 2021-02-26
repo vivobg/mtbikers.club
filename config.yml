@@ -1,0 +1,26 @@
+baseurl: 'https://mtbikers.club'
+title: MTBikers Club
+author: Vilian Atmadzhov
+copyright: 'Copyright © 2021, Vilian Atmadzhov; all rights reserved.'
+canonifyurls: true
+paginate: 3
+theme: silhouette-hugo
+pygmentsUseClasses: true
+disqusShortname: ''
+googleAnalytics: ''
+params:
+  author: MTBikers Club
+  introDescription: A place for like-minded mountain bikers.
+  contentSharing: >-
+    I'm happy for you to share content on this site, but please provide
+    attribution.
+  #mtb_trail_grades_path: 
+  mtb_trail_grades:
+    - green
+    - blue
+    - red
+    - black
+social:
+  instagram: vivobg
+  linkedin: vivobg
+  twitter: vivobg

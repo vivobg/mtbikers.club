@@ -7,7 +7,6 @@ google_maps: <iframe
   loading="lazy"></iframe>
 location_difficulty:
   - green
-  - orange
   - blue
   - red
   - black

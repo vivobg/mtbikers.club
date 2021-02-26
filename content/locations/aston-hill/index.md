@@ -6,7 +6,6 @@ google_maps: <iframe
   width="100%" height="400" style="border:0;" allowfullscreen=""
   loading="lazy"></iframe>
 location_difficulty:
-  - orange
   - red
   - black
 cost: 6

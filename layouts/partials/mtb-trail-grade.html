@@ -1,0 +1,13 @@
+<figure>
+{{ range .Site.Params.mtb_trail_grades }}
+    {{ $image_path := "" }}
+    {{ if and $.Params.location_difficulty (in $.Params.location_difficulty . ) }}
+        {{ $image_path = path.Join "mtb-trail-grades" (printf "%s.png" . ) }}
+    {{ else }}
+        {{ $image_path = path.Join "mtb-trail-grades" (printf "not-%s.png" . ) }}
+    {{ end }}
+    {{ $image := (resources.Get $image_path).Resize "24x"  }}
+    {{ $image_link := $image.RelPermalink }}
+    <img src="{{ $image.RelPermalink }}" alt="FIXME">
+{{ end }}
+</figure>
