@@ -79,7 +79,7 @@
 {{ end }}
 {{ define "main" }}
   <div class="container mt-4 mb-4 recent-posts">
-      {{ $pages := .Pages }}
+      {{ $pages := .Pages.ByDate }}
       {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) 10 }}
       {{ range $paginator.Pages }}
       <article class="post">
