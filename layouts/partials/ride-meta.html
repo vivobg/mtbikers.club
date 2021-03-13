@@ -1,0 +1,37 @@
+{{ $location_id := .Params.location }}
+{{ $organiser_id := .Params.organiser }}
+
+{{ $location := ""}}
+{{ $location_link := ""}}
+{{ $cost := 0 }}
+{{ $parking := "" }}
+
+{{ $organiser := "" }}
+{{ $organiser_link := "" }}
+
+{{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
+    {{ $location = .Params.title }}
+    {{ $location_link = .RelPermalink }}
+    {{ $cost = .Params.cost }}
+    {{ if .Params.location_parking }}
+      {{ $parking = delimit .Params.location_parking ", " }}
+    {{ end }}
+{{ end }}
+
+{{ range where (where .Site.Pages "Section" "organisers" ) ".Params.title" "==" $organiser_id }}
+    {{ $organiser = .Params.name }}
+    {{ $organiser_link = .RelPermalink }}
+{{ end }}
+
+<div class="mb-1">
+  <small>
+      <i class="far fa-calendar-alt"></i>&nbsp;{{ .Date.Format "2 Jan, 2006" }} |
+      <strong>{{ $location }}</strong>
+      <!-- | <i class="fa fa-tags" title="Tags" aria-hidden="true"></i> {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href='/tags/{{ (replace $e "#" "%23") | urlize }}/'>{{ $e | urlize }}</a>{{ end }} -->
+  </small>
+</div>
+<div class="mb-1">
+  <small>
+    <strong>By {{ $organiser }}</strong>
+  </small>
+</div>
