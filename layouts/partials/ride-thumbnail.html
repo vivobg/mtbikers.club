@@ -1,0 +1,6 @@
+{{ $ride_cover_image := .Scratch.Get "cover_image"}}
+{{ $ride_cover_image_thumbnail := .Scratch.Get "cover_image_thumbnail"}}
+
+<figure>
+  <a href="{{ .RelPermalink }}"><img src="{{ $ride_cover_image_thumbnail }}"/></a>
+</figure>

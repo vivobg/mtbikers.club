@@ -1,0 +1,14 @@
+{{ $ride_cover_image := resources.GetMatch "images/hugo-logo.png" }}
+{{ if .Params.cover_image }}
+{{/* {{ if (isset .Params "cover_image") | and (ne .Params.cover_image '') }} */}}
+    {{ $ride_cover_image = .Resources.GetMatch .Params.cover_image }}
+{{ else }}
+    {{ $location_id := .Params.location }}
+    {{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
+        {{ if .Params.cover_image }}
+            {{ $ride_cover_image = .Resources.GetMatch .Params.cover_image }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ .Scratch.Set "cover_image" $ride_cover_image.RelPermalink }}
+{{ .Scratch.Set "cover_image_thumbnail" ($ride_cover_image.Fill "200x150 smart").RelPermalink }}

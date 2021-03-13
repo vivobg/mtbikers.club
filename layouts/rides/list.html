@@ -80,13 +80,12 @@
 {{ define "main" }}
   <div class="container mt-4 mb-4 recent-posts">
       {{ $pages := .Pages }}
-      {{ if .IsHome }}
-      {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-      {{ end }}
       {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) 10 }}
       {{ range $paginator.Pages }}
       <article class="post">
         <a class="title" href="{{ .Permalink }}"><h2>{{ dateFormat  "2 January, 2006" .Date }} | {{ .Title }}</h2></a>
+        {{ partial "ride-cover-image" . }}
+        {{ partial "ride-thumbnail" . }}
         {{ partial "post-meta" . }}
         {{ partial "mtb-trail-grade" . }}
         <div>
