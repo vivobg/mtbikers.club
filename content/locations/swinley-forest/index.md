@@ -19,8 +19,10 @@ website: https://www.swinleybikehub.com/
 cover_image: blue.jpg
 images:
   - bike-hub.jpg
-  - red.jpg
-  - swinley-1.jpg
+  - trees.jpg
+  - wet.jpg
+  - red3.jpg
+  - red2.jpg
 ---
 ## Trails
 
