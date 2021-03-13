@@ -134,7 +134,7 @@ collections:
       - label: "Images"
         name: "images"
         widget: "list"
-        max: 5
+        max: 10
         summary: '{{fields.image}}'
         field: {label: Image, name: image, widget: image}
 
@@ -191,14 +191,14 @@ collections:
       - label: "Publish Date"
         name: "publishDate"
         widget: "datetime"
-        format: YYYY-MM-DD HH:mm
+        format: YYYY-MM-DD HH:mm:ss
         date_format: YYYY-MM-DD
         time_format: HH:mm
       - { label: "Cover Image", name: "cover_image", widget: "image", required: false }
       - label: "Images"
         name: "images"
         widget: "list"
-        max: 5
+        max: 10
         summary: '{{fields.image}}'
         field: {label: Image, name: image, widget: image}
 
