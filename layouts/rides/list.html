@@ -83,17 +83,32 @@
       {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) 10 }}
       {{ range $paginator.Pages }}
       <article class="post">
-        <a class="title" href="{{ .Permalink }}"><h2>{{ dateFormat  "2 January, 2006" .Date }} | {{ .Title }}</h2></a>
+        <a class="title" href="{{ .Permalink }}"><h4>{{ dateFormat  "2 January, 2006" .Date }} | {{ .Title }}</h4></a>
         {{ partial "ride-cover-image" . }}
-        {{ partial "ride-thumbnail" . }}
-        {{ partial "post-meta" . }}
-        {{ partial "mtb-trail-grade" . }}
-        <div>
-            {{ .Summary }}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-auto">
+              {{ partial "ride-thumbnail" . }}
+            </div>
+            <div class="col-md">
+              <div class="row">
+                <div class="col-sm-auto">
+                  {{ partial "mtb-trail-grade" . }}
+                </div>
+                <div class="col-sm-8">
+                  {{ partial "post-meta" . }}
+                </div>
+              </div>
+              <div class="col-sm">
+                {{ .Summary }}
+                <div>
+                  <a href="{{ .Permalink }}" class="btn btn-outline-secondary" role="button">See Details...</a>
+                </div>
+            </div>
+            </div>
+          </div>
         </div>
-        <div>
-            <a href="{{ .Permalink }}" class="btn btn-outline-secondary" role="button">See Details...</a>
-        </div>
+        <hr>
       </article>
     {{ end }}
     <div class="d-flex justify-content-center">
