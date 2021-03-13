@@ -27,3 +27,11 @@
     {{ $ride.Scratch.Add "carousel_images" (slice $carousel_image ) }}
   {{ end }}
 {{ end }}
+
+{{ range $location.Params.images }}
+  {{ $image := $location.Resources.GetMatch . }}
+  {{ if $image }}
+    {{ $carousel_image := ($image.Fill "400x310 smart").RelPermalink }}
+    {{ $ride.Scratch.Add "carousel_images" (slice $carousel_image ) }}
+  {{ end }}
+{{ end }}
