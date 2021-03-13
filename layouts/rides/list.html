@@ -87,10 +87,10 @@
         {{ partial "ride-cover-image" . }}
         <div class="container">
           <div class="row">
-            <div class="col-md-auto">
+            <div class="col-sm-auto">
               {{ partial "ride-thumbnail" . }}
             </div>
-            <div class="col-md">
+            <div class="col-sm">
               <div class="row">
                 <div class="col-sm-auto">
                   {{ partial "mtb-trail-grade" . }}
@@ -99,12 +99,11 @@
                   {{ partial "post-meta" . }}
                 </div>
               </div>
-              <div class="col-sm">
-                {{ .Summary }}
-                <div>
-                  <a href="{{ .Permalink }}" class="btn btn-outline-secondary" role="button">See Details...</a>
+              <div class="row">
+                <div class="col-sm">
+                  {{ .Summary }}
                 </div>
-            </div>
+              </div>
             </div>
           </div>
         </div>
