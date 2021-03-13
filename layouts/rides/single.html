@@ -42,7 +42,7 @@
     </style>
 {{ end }}
 {{ define "title" }}
-  {{ .Title }} | {{ .Site.Title }}
+  {{ .Title }} {{ dateFormat  "2 January, 2006 15:04" .Date }} | {{ .Site.Title }}
 {{ end }}
 {{ define "header" }}
 <header class="feature-image d-print-none">
@@ -50,7 +50,7 @@
 {{ end }}
 {{ define "main" }}
 <div class="container mt-4 post">
-    <h1>{{ .Title }}</h1>
+    <h1>{{ .Title }} | {{ dateFormat  "2 January, 2006" .Date }}</h1>
     {{ partial "post-meta" . }}
 
     <div class="share-icons d-flex justify-content-center d-print-none">

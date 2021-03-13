@@ -3,7 +3,7 @@
     <style type="text/css">
       .feature-image {
         background-image: linear-gradient(
-            rgba(0, 0, 0, 0.15), 
+            rgba(0, 0, 0, 0.15),
             rgba(0, 0, 0, 0.15)
           ), url('{{ "images/main/mountains-ride.jpg" | absURL }}');
           height: 500px;
@@ -86,7 +86,7 @@
       {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) 10 }}
       {{ range $paginator.Pages }}
       <article class="post">
-        <a class="title" href="{{ .Permalink }}"><h2>{{ .Title }}</h2></a>
+        <a class="title" href="{{ .Permalink }}"><h2>{{ dateFormat  "2 January, 2006" .Date }} | {{ .Title }}</h2></a>
         {{ partial "post-meta" . }}
         {{ partial "mtb-trail-grade" . }}
         <div>
