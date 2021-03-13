@@ -153,13 +153,47 @@ collections:
     #  depth: 2
     #  summary: "{{title}}"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    #slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{fields.date}}-{{fields.location}}-{{title}}"
+    # editor:
+    summary: "{{date}} {{dirname}} - {{title}}"
+    sortable_fields:
+      - date
+      - title
+      - location
+    view_groups:
+      - label: Month
+        field: date
+        pattern: \d{4}-\d{2}
+      - label: Location
+        field: location
+    # view_filters:
+    #   - label: Aston View filter
+    #     field: location
+    #     pattern: 'aston-hill'
     #meta: { path: { widget: string, label: 'Path', index_file: 'index', default: "{{fields.parent}}" } }
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "ride" }
       - { label: "Title", name: "title", widget: "string" }
       #- {label: "Parent", name: "parent", widget: "parent"}
-      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - label: "Start"
+        name: "date"
+        widget: "datetime"
+        format: YYYY-MM-DD HH:mm:ss
+        date_format: YYYY-MM-DD
+        time_format: HH:mm
+      - label: "End"
+        name: "end_date"
+        widget: "datetime"
+        format: YYYY-MM-DD HH:mm:ss
+        date_format: YYYY-MM-DD
+        time_format: HH:mm
+      - label: "Publish Date"
+        name: "publishDate"
+        widget: "datetime"
+        format: YYYY-MM-DD HH:mm
+        date_format: YYYY-MM-DD
+        time_format: HH:mm
       - { label: "Cover Image", name: "cover_image", widget: "image", required: false }
       - label: "Images"
         name: "images"

@@ -1,0 +1,16 @@
+
+{{ $date := .Params.date }}
+{{ $end_date := .Params.end_date }}
+{{ $start_time := .Params.start_time }}
+{{ $end_time := .Params.end_time }}
+
+<table>
+  <tr>
+    <th>Start</th>
+    <td>{{ dateFormat  "Monday, 2 January, 2006 15:04" $date }}</th>
+  </tr>
+  <tr>
+    <th>End</td>
+    <td>{{ dateFormat  "Monday, 2 January, 2006 15:04" $end_date }}</td>
+  </tr>
+</table>

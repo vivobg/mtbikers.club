@@ -24,6 +24,6 @@
     {{ end }}
     {{ $image := (resources.Get $image_path).Resize "24x"  }}
     {{ $image_link := $image.RelPermalink }}
-    <img src="{{ $image.RelPermalink }}" alt="FIXME">
+    <img src="{{ $image.RelPermalink }}" alt="mtb-trail-grade-{{ . }}">
 {{ end }}
 </figure>
