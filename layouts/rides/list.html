@@ -84,7 +84,7 @@
       {{ range $paginator.Pages }}
       <article class="post">
         <!-- {{ dateFormat  "2 January, 2006" .Date }} | -->
-        <a class="title" href="{{ .Permalink }}"><h4> {{ .Title }}</h4></a>
+        <a class="title" href="{{ .Permalink }}"><h4>{{ .Title }}</h4></a>
         {{ partial "ride-cover-image" . }}
         <div class="container">
           <div class="row">

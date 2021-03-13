@@ -51,14 +51,18 @@
 {{ define "main" }}
 <div class="container mt-4 post">
     <h1>{{ .Title }} | {{ dateFormat  "2 January, 2006" .Date }}</h1>
-    {{ partial "post-meta" . }}
-
-    <div class="share-icons d-flex justify-content-center d-print-none">
-        {{ partial "share-icons" . }}
-    </div>
-
+    {{ partial "ride-images" . }}
     <div class="mt-4 mb-4 main-content">
-        {{ partial "ride-info" . }}
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-auto">
+            {{ partial "ride-info" . }}
+          </div>
+          <div class="col-sm-auto">
+            {{ partial "ride-image-carousel" . }}
+          </div>
+        </div>
+      </div>
         <br>
         <h2>Ride Details</h2>
         {{ .Content }}
