@@ -2,6 +2,7 @@
     {{ $location_id := .Params.location }}
     {{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
         {{ .Params.google_maps | safeHTML }}
+        <br>
         {{ .Content }}
     {{ end }}
 {{ else if eq .Type "locations"}}

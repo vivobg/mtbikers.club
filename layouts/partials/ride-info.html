@@ -4,7 +4,36 @@
 {{ $start_time := .Params.start_time }}
 {{ $end_time := .Params.end_time }}
 
+{{ $location_id := .Params.location }}
+{{ $organiser_id := .Params.organiser }}
+
+{{ $location := ""}}
+{{ $location_link := ""}}
+{{ $cost := 0 }}
+{{ $parking := "" }}
+
+{{ $organiser := "" }}
+{{ $organiser_link := "" }}
+
+{{ range where (where .Site.Pages "Section" "locations" ) ".Params.location_id" "==" $location_id }}
+    {{ $location = .Params.title }}
+    {{ $location_link = .RelPermalink }}
+    {{ $cost = .Params.cost }}
+    {{ if .Params.location_parking }}
+      {{ $parking = delimit .Params.location_parking ", " }}
+    {{ end }}
+{{ end }}
+
+{{ range where (where .Site.Pages "Section" "organisers" ) ".Params.title" "==" $organiser_id }}
+    {{ $organiser = .Params.name }}
+    {{ $organiser_link = .RelPermalink }}
+{{ end }}
+
 <table>
+  <tr>
+    <th>Grade</td>
+    <td>{{ partial "mtb-trail-grade" . }}</td>
+  </tr>
   <tr>
     <th>Start</th>
     <td>{{ dateFormat  "Monday, 2 January, 2006 15:04" $date }}</th>
@@ -12,5 +41,21 @@
   <tr>
     <th>End</td>
     <td>{{ dateFormat  "Monday, 2 January, 2006 15:04" $end_date }}</td>
+  </tr>
+  <tr>
+    <th>Location</td>
+    <td><a href="{{ $location_link }}">{{ $location }}</a></td>
+  </tr>
+  <tr>
+    <th>Organiser</td>
+    <td><a href="{{ $organiser_link }}">{{ $organiser }}</a></td>
+  </tr>
+  <tr>
+    <th>Cost</td>
+    <td>{{ $cost }}</td>
+  </tr>
+  <tr>
+    <th>Parking</td>
+    <td>{{ $parking }}</td>
   </tr>
 </table>

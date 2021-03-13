@@ -14,7 +14,7 @@
         {{ $location_difficulty = .Params.ride_difficulty }}
     {{ end }}
 {{ end }}
-<figure>
+<figure class="mtb-trail-grade">
 {{ range .Site.Params.mtb_trail_grades }}
     {{ $image_path := "" }}
     {{ if in $location_difficulty .  }}
