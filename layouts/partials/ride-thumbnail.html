@@ -1,6 +1,15 @@
 {{ $ride_cover_image := .Scratch.Get "cover_image"}}
 {{ $ride_cover_image_thumbnail := .Scratch.Get "cover_image_thumbnail"}}
+{{ $ride_cover_image_small_thumbnail := .Scratch.Get "cover_image_small_thumbnail"}}
 
 <figure>
-  <a href="{{ .RelPermalink }}"><img src="{{ $ride_cover_image_thumbnail }}"/></a>
+  <a href="{{ .RelPermalink }}">
+    <img
+    src="{{ $ride_cover_image_thumbnail }}"
+    srcset="{{ $ride_cover_image_thumbnail }} 200w,
+            {{ $ride_cover_image_small_thumbnail }} 100w"
+    sizes="(max-width: 600px) 100px,
+            200px"
+    />
+  </a>
 </figure>
