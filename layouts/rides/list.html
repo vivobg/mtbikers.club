@@ -82,33 +82,29 @@
       {{ $pages := .Pages.ByDate }}
       {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) 10 }}
       {{ range $paginator.Pages }}
-      <article class="post">
-        <!-- {{ dateFormat  "2 January, 2006" .Date }} | -->
-        <a class="title" href="{{ .Permalink }}"><h4>{{ .Title }}</h4></a>
-        {{ partial "ride-cover-image" . }}
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-auto">
-              {{ partial "ride-thumbnail" . }}
+      <article class="post media">
+        <div class="mr-3">
+          {{ partial "ride-cover-image" . }}
+          {{ partial "ride-thumbnail" . }}
+        </div>
+        <div class="media-body">
+          <div class="container">
+            <div class="row">
+              <a class="title" href="{{ .Permalink }}"><h4>{{ .Title }}</h4></a>
             </div>
-            <div class="col-sm">
-              <div class="row">
-                <div class="col-sm-auto">
-                  {{ partial "mtb-trail-grade" . }}
-                </div>
-                <div class="col-sm-8">
-                  {{ partial "ride-meta" . }}
-                </div>
+            <div class="row">
+              <div class="col-sm-auto">
+                {{ partial "mtb-trail-grade" . }}
+                {{ partial "ride-meta" . }}
               </div>
-              <div class="row">
-                <div class="col-sm">
-                  {{ .Summary }}
-                </div>
+              <div class="col-sm">
+                {{ .Summary }}
               </div>
             </div>
+
+
           </div>
         </div>
-        <hr>
       </article>
     {{ end }}
     <div class="d-flex justify-content-center">
