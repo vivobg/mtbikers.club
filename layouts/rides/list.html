@@ -78,11 +78,11 @@
   {{ end }}
 {{ end }}
 {{ define "main" }}
-  <div class="container mt-4 mb-4 recent-posts">
+  <div class="container  mt-2 mb-2 recent-posts">
       {{ $pages := .Pages.ByDate }}
       {{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) 10 }}
       {{ range $paginator.Pages }}
-      <article class="post media">
+      <article class="post media d-flex flex-row">
         <div class="mr-3">
           {{ partial "ride-cover-image" . }}
           {{ partial "ride-thumbnail" . }}
