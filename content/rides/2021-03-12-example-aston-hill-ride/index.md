@@ -1,5 +1,5 @@
 ---
-title: Aston Hill Example ride
+title: Example Aston Hill ride
 date: 2021-03-14 11:30:00
 end_date: 2021-03-14 14:30:00
 publishDate: 2021-03-13 01:21:00
