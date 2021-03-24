@@ -33,6 +33,8 @@ Uplift: Our fleet of mini buses will transport you quickly, safely and comfortab
 
 If you would rather not use our uplift and you feel up to the challenge we also have a Singletrack climb so you can pedal your way to the top of the hill before choosing your route down.
 
+![Map of Bike Park Wales](./map.webp)
+
 
 ## WHY PAY TO RIDE?
 BikePark Wales is a unique mountain biking venue, we were the first place in the UK to have a full time crew looking after our trails and ensuring they are kept in great condition for your riding pleasure. Our business model is to continually re-invest in the park and create new sections of trail for your enjoyment, you should find new additions or changes to ride on every visit.  Your entry fee will help us maintain and grow our trail network for years to come and we are committed to investing every penny (and more!) of the pedal pass fee directly back into trail maintenance and expansion.  Our aim is to always be one of the best mountain biking destinations in the World, a must visit spot for all mountain bikers.  
