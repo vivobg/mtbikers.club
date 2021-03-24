@@ -20,7 +20,6 @@ images:
   - woods.jpg
   - rocks.jpeg
   - berm.jpg
-  - map.webp
 ---
 ### About Bike Park Wales
 The concept is simple, picture a ski resort, remove the snow and replace the pistes with an array of sweeping flowy bike trails meandering to the bottom of the mountain and you are close.  Add a bunch of adrenalin and big sprinkle of fun and you are pretty much there. BikePark Wales is an exhilarating  way to spend your day in the Welsh mountains.  
