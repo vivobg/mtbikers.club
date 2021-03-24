@@ -3,7 +3,7 @@ title: Bike Park Wales
 location_id: bike-park-wales
 google_maps: <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2471.623223315836!2d-3.3790910842221233!3d51.72163537967092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486e3c82c5f1825b%3A0xdef51d439910375c!2sBikePark%20Wales!5e0!3m2!1sen!2sbg!4v1616606414552!5m2!1sen!2sbg"
-  width="600" height="450" style="border:0;" allowfullscreen=""
+  width="100%" height="400" style="border:0;" allowfullscreen=""
   loading="lazy"></iframe>
 location_difficulty:
   - green
